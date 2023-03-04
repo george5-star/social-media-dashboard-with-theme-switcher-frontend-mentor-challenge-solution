@@ -1,0 +1,328 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  body {
+    font-size: 1.6rem;
+    background-color: $Very-Dark-Blue-bg;
+    color: $text-color;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: $ff-primary;
+  }
+}
+
+.attribution {
+  display: none;
+}
+
+.light-theme {
+  background-color: $text-color;
+  color: $Very-Dark-Blue;
+}
+
+.red-clr {
+  color: $bright-red;
+}
+
+.dashboard-container,
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.main-header {
+  margin-inline: 0;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .mini-container {
+      margin-block: 1.5rem;
+      .dashboard-main-title {
+        font-size: 2.4rem;
+      }
+      .total-followers {
+        font-size: 1.4rem;
+        color: $Desaturated-Blue-text;
+      }
+
+      .light-theme {
+        color: $Very-Dark-Blue;
+      }
+    }
+
+    .theme-toggle {
+      color: $Desaturated-Blue-text;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .toggler {
+        position: relative;
+        width: 5rem;
+        height: 2.5rem;
+        background: $dark-theme-toggle;
+        border-radius: 2.5rem;
+        margin-left: 1rem;
+        box-shadow: inset 0 0.4rem rgba(0, 0, 0, 0.1),
+          inset 0 -0.4rem rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+        .indicator {
+          transition: 0.5s;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2.5rem;
+          height: 100%;
+          background-color: $Very-Dark-Blue;
+          border-radius: 2.5rem;
+          transform: scale(0.8);
+        }
+
+        .clicked {
+          left: 2.5rem;
+          background-color: white;
+        }
+      }
+
+      .light-theme {
+        background: $light-theme-toggle;
+      }
+    }
+  }
+}
+
+.dashboard-container {
+  width: 90%;
+
+  .main-header {
+    min-height: 5rem;
+    margin-block: 2rem;
+  }
+
+  .top-section {
+    margin-bottom: 2rem;
+    .mega-cards {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+
+      .facebook-card::before,
+      .twitter-card::before,
+      .instagram-card::before,
+      .youtube-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 0.5rem;
+        right: 0;
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+
+      .facebook-card::before {
+        background-color: $facebook-color-theme;
+      }
+      .twitter-card::before {
+        background-color: $twitter-color-theme;
+      }
+      .instagram-card::before {
+        background: $instagram-color-theme;
+      }
+      .youtube-card::before {
+        background-color: $youtube-color-theme;
+      }
+
+      .mega-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $Dark-Desaturated-Blue-card-bg;
+        height: 20rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($Dark-Desaturated-Blue-card-bg, 10%);
+        }
+
+        .username {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .social-media-icon {
+            margin-right: 0.5rem;
+          }
+          span {
+            color: $Desaturated-Blue-text;
+            font-size: $fz-primary;
+          }
+        }
+
+        .num-of-followers-content {
+          display: grid;
+          place-items: center;
+
+          .num {
+            display: block;
+            font-size: 4.8rem;
+            font-weight: $fw-bold;
+          }
+
+          .subscribers,
+          .followers {
+            font-size: $fz-primary;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            color: $Dark-Grayish-Blue;
+          }
+        }
+
+        .upvotes {
+          font-size: $fz-primary;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            display: block;
+            margin-right: 0.5rem;
+          }
+
+          .text {
+            color: $lime-green;
+          }
+
+          .red-clr {
+            color: $bright-red;
+          }
+        }
+      }
+
+      .light-theme {
+        background-color: $Very-Pale-Blue;
+
+        .num,
+        span {
+          color: $Very-Dark-Blue;
+        }
+
+        &:hover {
+          background-color: darken($Light-Grayish-Blue, 5%);
+        }
+      }
+    }
+  }
+
+  .bottom-section {
+    margin-bottom: 3rem;
+    .dashboard-subtitle {
+      margin-block: 2rem;
+      font-size: 1.8rem;
+    }
+    .mini-cards {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+      .mini-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        height: 12.5rem;
+        background-color: $Dark-Desaturated-Blue-card-bg;
+
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($Dark-Desaturated-Blue-card-bg, 10%);
+        }
+
+        .left-content,
+        .right-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .left-content {
+          .likes,
+          .views,
+          .tweets {
+            color: $Desaturated-Blue-text;
+          }
+
+          .num {
+            font-size: 2.4rem;
+            font-weight: $fw-bold;
+          }
+        }
+
+        .right-content {
+          align-items: flex-end;
+          .votes {
+            font-size: $fz-primary;
+            color: $lime-green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .text {
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+
+      .light-theme {
+        background-color: $Very-Pale-Blue;
+
+        .left-content {
+          .likes,
+          .tweets,
+          .views {
+            color: $Very-Dark-Blue;
+          }
+        }
+        &:hover {
+          background-color: darken($Light-Grayish-Blue, 5%);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .main-header {
+    .container {
+      .theme-toggle {
+        color: $Desaturated-Blue-text;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $Dark-Grayish-Blue;
+        margin-block: 1rem;
+        padding-block: 2rem;
+        width: 100%;
+      }
+    }
+  }
+}

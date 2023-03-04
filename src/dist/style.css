@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+html body {
+  font-size: 1.6rem;
+  background-color: hsl(230deg, 17%, 14%);
+  color: hsl(0deg, 0%, 100%);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+.attribution {
+  display: none;
+}
+
+.light-theme {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(230deg, 17%, 14%);
+}
+
+.red-clr {
+  color: hsl(356deg, 69%, 56%);
+}
+
+.dashboard-container,
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.main-header {
+  margin-inline: 0;
+}
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main-header .container .mini-container {
+  margin-block: 1.5rem;
+}
+.main-header .container .mini-container .dashboard-main-title {
+  font-size: 2.4rem;
+}
+.main-header .container .mini-container .total-followers {
+  font-size: 1.4rem;
+  color: hsl(228deg, 34%, 66%);
+}
+.main-header .container .mini-container .light-theme {
+  color: hsl(230deg, 17%, 14%);
+}
+.main-header .container .theme-toggle {
+  color: hsl(228deg, 34%, 66%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-header .container .theme-toggle .toggler {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+  background: linear-gradient(to right, hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+  border-radius: 2.5rem;
+  margin-left: 1rem;
+  box-shadow: inset 0 0.4rem rgba(0, 0, 0, 0.1), inset 0 -0.4rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.main-header .container .theme-toggle .toggler .indicator {
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 100%;
+  background-color: hsl(230deg, 17%, 14%);
+  border-radius: 2.5rem;
+  transform: scale(0.8);
+}
+.main-header .container .theme-toggle .toggler .clicked {
+  left: 2.5rem;
+  background-color: white;
+}
+.main-header .container .theme-toggle .light-theme {
+  background: hsl(230deg, 22%, 74%);
+}
+
+.dashboard-container {
+  width: 90%;
+}
+.dashboard-container .main-header {
+  min-height: 5rem;
+  margin-block: 2rem;
+}
+.dashboard-container .top-section {
+  margin-bottom: 2rem;
+}
+.dashboard-container .top-section .mega-cards {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+}
+.dashboard-container .top-section .mega-cards .facebook-card::before,
+.dashboard-container .top-section .mega-cards .twitter-card::before,
+.dashboard-container .top-section .mega-cards .instagram-card::before,
+.dashboard-container .top-section .mega-cards .youtube-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 0.5rem;
+  right: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.dashboard-container .top-section .mega-cards .facebook-card::before {
+  background-color: hsl(208deg, 92%, 53%);
+}
+.dashboard-container .top-section .mega-cards .twitter-card::before {
+  background-color: hsl(203deg, 89%, 53%);
+}
+.dashboard-container .top-section .mega-cards .instagram-card::before {
+  background: linear-gradient(to right, hsl(37deg, 97%, 70%), hsl(329deg, 70%, 39%));
+}
+.dashboard-container .top-section .mega-cards .youtube-card::before {
+  background-color: hsl(348deg, 97%, 39%);
+}
+.dashboard-container .top-section .mega-cards .mega-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: hsl(228deg, 28%, 20%);
+  height: 20rem;
+  border-radius: 0.5rem;
+}
+.dashboard-container .top-section .mega-cards .mega-card:hover {
+  cursor: pointer;
+  background-color: #374062;
+}
+.dashboard-container .top-section .mega-cards .mega-card .username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-container .top-section .mega-cards .mega-card .username .social-media-icon {
+  margin-right: 0.5rem;
+}
+.dashboard-container .top-section .mega-cards .mega-card .username span {
+  color: hsl(228deg, 34%, 66%);
+  font-size: 1.4rem;
+}
+.dashboard-container .top-section .mega-cards .mega-card .num-of-followers-content {
+  display: grid;
+  place-items: center;
+}
+.dashboard-container .top-section .mega-cards .mega-card .num-of-followers-content .num {
+  display: block;
+  font-size: 4.8rem;
+  font-weight: 700;
+}
+.dashboard-container .top-section .mega-cards .mega-card .num-of-followers-content .subscribers,
+.dashboard-container .top-section .mega-cards .mega-card .num-of-followers-content .followers {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  color: hsl(228deg, 12%, 44%);
+}
+.dashboard-container .top-section .mega-cards .mega-card .upvotes {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-container .top-section .mega-cards .mega-card .upvotes img {
+  display: block;
+  margin-right: 0.5rem;
+}
+.dashboard-container .top-section .mega-cards .mega-card .upvotes .text {
+  color: hsl(163deg, 72%, 41%);
+}
+.dashboard-container .top-section .mega-cards .mega-card .upvotes .red-clr {
+  color: hsl(356deg, 69%, 56%);
+}
+.dashboard-container .top-section .mega-cards .light-theme {
+  background-color: hsl(225deg, 100%, 98%);
+}
+.dashboard-container .top-section .mega-cards .light-theme .num,
+.dashboard-container .top-section .mega-cards .light-theme span {
+  color: hsl(230deg, 17%, 14%);
+}
+.dashboard-container .top-section .mega-cards .light-theme:hover {
+  background-color: #dde2f3;
+}
+.dashboard-container .bottom-section {
+  margin-bottom: 3rem;
+}
+.dashboard-container .bottom-section .dashboard-subtitle {
+  margin-block: 2rem;
+  font-size: 1.8rem;
+}
+.dashboard-container .bottom-section .mini-cards {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+.dashboard-container .bottom-section .mini-cards .mini-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  height: 12.5rem;
+  background-color: hsl(228deg, 28%, 20%);
+}
+.dashboard-container .bottom-section .mini-cards .mini-card:hover {
+  cursor: pointer;
+  background-color: #374062;
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .left-content,
+.dashboard-container .bottom-section .mini-cards .mini-card .right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .left-content .likes,
+.dashboard-container .bottom-section .mini-cards .mini-card .left-content .views,
+.dashboard-container .bottom-section .mini-cards .mini-card .left-content .tweets {
+  color: hsl(228deg, 34%, 66%);
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .left-content .num {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .right-content {
+  align-items: flex-end;
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .right-content .votes {
+  font-size: 1.4rem;
+  color: hsl(163deg, 72%, 41%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard-container .bottom-section .mini-cards .mini-card .right-content .votes .text {
+  margin-left: 0.5rem;
+}
+.dashboard-container .bottom-section .mini-cards .light-theme {
+  background-color: hsl(225deg, 100%, 98%);
+}
+.dashboard-container .bottom-section .mini-cards .light-theme .left-content .likes,
+.dashboard-container .bottom-section .mini-cards .light-theme .left-content .tweets,
+.dashboard-container .bottom-section .mini-cards .light-theme .left-content .views {
+  color: hsl(230deg, 17%, 14%);
+}
+.dashboard-container .bottom-section .mini-cards .light-theme:hover {
+  background-color: #dde2f3;
+}
+
+@media (max-width: 40rem) {
+  .main-header .container .theme-toggle {
+    color: hsl(228deg, 34%, 66%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid hsl(228deg, 12%, 44%);
+    margin-block: 1rem;
+    padding-block: 2rem;
+    width: 100%;
+  }
+}
